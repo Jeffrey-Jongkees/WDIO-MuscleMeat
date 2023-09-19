@@ -23,9 +23,6 @@ jobs:
       run: npm install
     
     - name: Run musclemeat login test
-      env:
-        EMAIL: ${{secrets.EMAIL_ADDRESS}}
-        PASSWORD: ${{secrets.MM_PASSWORD}}
       run: npm run musclemeat
   
     # - name: Upload video
