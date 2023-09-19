@@ -1,33 +1,34 @@
-name: Web Driver IO 
+name: Web Driver IO
 
 on:
- push:
-  branches:
-  - Develop
+  push:
+    branches:
+      - develop  # Use lowercase for branch names, if that's your actual branch name
 
 jobs:
- 
- Login-Muscle-Meat:
-   runs-on: ubuntu-latest
+  login-muscle-meat:
+    runs-on: ubuntu-latest
 
-   steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 18
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2  # Updated to v2 for compatibility
 
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Run musclemeat login test
-      run: npm run musclemeat
-  
-    # - name: Upload video
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: Musclemeat login result Chrome
-    #     path: /home/runner/work/MuscleMeat/MuscleMeat/cypress/videos/loginProcedureMuscleMeat.cy.mp4 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18  # Use the Node.js version you need
+          
+      - name: Install Dependencies
+        run: npm install
 
+      - name: Set Execute Permission for wdio Binary
+        run: chmod +x ./node_modules/.bin/wdio
+
+      - name: Run Musclemeat Login Test
+        run: npm run musclemeat
+
+      # - name: Upload Video
+      #   uses: actions/upload-artifact@v2  # Updated to v2 for compatibility
+      #   with:
+      #     name: Musclemeat Login Result Chrome
+      #     path: /home/runner/work/MuscleMeat/MuscleMeat/cypress/videos/loginProcedureMuscleMeat.cy.mp4
