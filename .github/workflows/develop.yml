@@ -1,1 +1,36 @@
+name: Web Driver IO 
+
+on:
+ push:
+  branches:
+  - Develop
+
+jobs:
+ 
+ Login-Muscle-Meat:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run musclemeat login test
+      env:
+        EMAIL: ${{secrets.EMAIL_ADDRESS}}
+        PASSWORD: ${{secrets.MM_PASSWORD}}
+      run: npm run musclemeat
+  
+    # - name: Upload video
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: Musclemeat login result Chrome
+    #     path: /home/runner/work/MuscleMeat/MuscleMeat/cypress/videos/loginProcedureMuscleMeat.cy.mp4 
 
