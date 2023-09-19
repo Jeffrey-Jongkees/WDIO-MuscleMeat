@@ -7,7 +7,10 @@ describe('Log into MuscleMeat', () => {
         
        await browser.url('https://musclemeat.nl/')
 
-       await LoginPage.clickAccountButton()
-       await LoginPage.fillInCredentials()
+       await LoginPage.clickAccountButton();
+       await LoginPage.fillInCredentials();
+
+       const logOutButton = await $('//a[text()[contains(.,"Log uit")]]')
+       await expect(logOutButton).toHaveText('Log uit');
     })
 })

@@ -11,6 +11,8 @@
     "dotenv": "^16.3.1"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.e2e.js"
+    
   }
 }

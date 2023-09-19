@@ -14,7 +14,7 @@ class LoginPage{
 
 
        async clickAccountButton(){
-            await this.elements.accountButton.click();
+            await this.elements.accountButton().click();
         }
 
         async fillInCredentials(){
@@ -22,9 +22,9 @@ class LoginPage{
             const username = process.env.EMAIL_ADDRESS;
             const password = process.env.MM_PASSWORD;
 
-            await this.elements.username.setValue(username);
-            await this.elements.password.setValue(password);
-            await this.elements.loginButton.click();
+            await this.elements.username().setValue(username);
+            await this.elements.password().setValue(password);
+            await this.elements.loginButton().click();
         }
 }
 
