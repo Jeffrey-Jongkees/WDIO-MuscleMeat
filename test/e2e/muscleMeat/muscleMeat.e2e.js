@@ -1,4 +1,5 @@
-import LoginPage from  "../pageobjects/MuscleMeat/login.js";
+import LoginPage from  "../../pageobjects/MuscleMeat/login.js";
+
 
 describe('Log into MuscleMeat', () => {
     
