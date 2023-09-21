@@ -26,7 +26,7 @@ jobs:
     - name: Set Execute Permission for wdio Binary
       run: chmod +x ./node_modules/.bin/wdio
     
-    - name: Run musclemeat login test
+    - name: Run musclemeat login test!
       run: npm run musclemeat
   
     # - name: Upload video
