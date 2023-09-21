@@ -9,7 +9,7 @@ jobs:
  
  Login-Muscle-Meat:
    runs-on: ubuntu-latest
-   environment: 'testing'
+   environment: testing
 
    steps:
     - name: Checkout code
