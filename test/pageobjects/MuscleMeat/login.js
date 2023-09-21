@@ -9,7 +9,8 @@ class LoginPage{
         accountButton : () => $('a[href="https://musclemeat.nl/my-account/ "]'),
         username : () => $('[id="username"]'),
         password : () => $('[id="password"]'),
-        loginButton : () => $('[name="login"]')
+        loginButton : () => $('[name="login"]'),
+        logoutButton : () => $('div.woocommerce-MyAccount-content a[href*="customer-logout"]')
         }
 
 
@@ -19,12 +20,16 @@ class LoginPage{
 
         async fillInCredentials(){
 
-            const username = process.env.EMAIL_ADDRESS;
-            const password = process.env.MM_PASSWORD;
+            let username = process.env.EMAIL_ADDRESS;
+            let password = process.env.MM_PASSWORD;
 
             await this.elements.username().setValue(username);
             await this.elements.password().setValue(password);
             await this.elements.loginButton().click();
+        }
+
+        async clickLogOutbutton(){
+            await this.elements.logoutButton().click();
         }
 }
 

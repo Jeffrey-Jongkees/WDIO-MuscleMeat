@@ -10,7 +10,30 @@ describe('Log into MuscleMeat', () => {
        await LoginPage.clickAccountButton();
        await LoginPage.fillInCredentials();
 
+       await browser.pause(2000)
+
+       const logOutButton = await $('//a[text()="Log uit"]')
+       await expect(logOutButton).toHaveText('Log uit');
+    })
+})
+
+
+describe('Logging out of MuscleMeat', () => {
+    
+    it('Logout', async ()=> {
+        
+       await browser.url('https://musclemeat.nl/') 
+
+       await LoginPage.clickAccountButton();
+       await browser.pause(2000)
+
        const logOutButton = await $('//a[text()[contains(.,"Log uit")]]')
        await expect(logOutButton).toHaveText('Log uit');
+
+       await LoginPage.clickLogOutbutton();
+       await browser.pause(2000);
+
+       const inloggen = await $('//h2[text()="Inloggen"]');
+       await expect(inloggen).toHaveText('INLOGGEN');
     })
 })
