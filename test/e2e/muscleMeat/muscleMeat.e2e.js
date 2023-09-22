@@ -1,40 +1,55 @@
-import LoginPage from  "../../pageobjects/MuscleMeat/login.js";
+import LoginPage from '../../pageobjects/MuscleMeat/login.js';
 
+describe('Login and Logout Tests', () => {
+  it('should log into musclemeat.nl', async () => {
+    // Navigate to the website
+    await browser.url('https://musclemeat.nl/');
 
-describe('Log into MuscleMeat', () => {
-    
-    it('Login', async ()=> {
-        
-       await browser.url('https://musclemeat.nl/')
+    // Verify if the page is correctly loaded
+    const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
+    await musclemeatLogo.isDisplayed();
 
-       await LoginPage.clickAccountButton();
-       await LoginPage.fillInCredentials();
+    // Click the account button
+    await LoginPage.clickAccountButton();
 
-       await browser.pause(2000)
+    // To validate the login page successfully loaded
+    const inloggen = await $('//h2[text()="Inloggen"]');
+    await expect(inloggen).toHaveText('INLOGGEN');
 
-       const logOutButton = await $('//a[text()="Log uit"]')
-       await expect(logOutButton).toHaveText('Log uit');
-    })
-})
+    // Fill in login credentials
+    await LoginPage.fillInCredentials();
 
+    // Verify if the welcome message is displayed
+    const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
+    await welcomeMessage.isDisplayed();
 
-describe('Logging out of MuscleMeat!', () => {
-    
-    it('Logout', async ()=> {
-        
-       await browser.url('https://musclemeat.nl/') 
+    // To validate the successful login, check if the 'Log out' button is present
+    const logOutButton = await $('//a[text()="Log uit"]');
+    await expect(logOutButton).toHaveText('Log uit');
+  });
 
-       await LoginPage.clickAccountButton();
-       await browser.pause(2000)
+  
+  it('should log out of musclemeat.nl', async () => {
+    // Navigate to the website
+    await browser.url('https://musclemeat.nl/');
 
-       const logOutButton = await $('//a[text()[contains(.,"Log uit")]]')
-       await expect(logOutButton).toHaveText('Log uit');
+    // Verify if the page is correctly loaded
+    const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
+    await musclemeatLogo.isDisplayed();
+  
+    // Click the account button
+    await LoginPage.clickAccountButton();
+  
+    // Verify if the welcome message is displayed
+    const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
+    await welcomeMessage.isDisplayed();
+  
+    // Click the logout button (Log uit)
+    await LoginPage.clickLogOutbutton();
+  
+    // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
+    const inloggen = await $('//h2[text()="Inloggen"]');
+    await expect(inloggen).toHaveText('INLOGGEN');
+  });
 
-       await LoginPage.clickLogOutbutton();
-       await browser.pause(2000);
-        
-       //Volgende stap is om te valideren dat er correct uitgelogd is
-       const inloggen = await $('//h2[text()="Inloggen"]');
-       await expect(inloggen).toHaveText('INLOGGEN');
-    })
-})
+});
