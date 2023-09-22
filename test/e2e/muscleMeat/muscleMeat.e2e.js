@@ -18,7 +18,7 @@ describe('Log into MuscleMeat', () => {
 })
 
 
-describe('Logging out of MuscleMeat', () => {
+describe('Logging out of MuscleMeat!', () => {
     
     it('Logout', async ()=> {
         
@@ -32,7 +32,8 @@ describe('Logging out of MuscleMeat', () => {
 
        await LoginPage.clickLogOutbutton();
        await browser.pause(2000);
-
+        
+       //Volgende stap is om te valideren dat er correct uitgelogd is
        const inloggen = await $('//h2[text()="Inloggen"]');
        await expect(inloggen).toHaveText('INLOGGEN');
     })
