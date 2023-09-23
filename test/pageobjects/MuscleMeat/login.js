@@ -23,8 +23,8 @@ class LoginPage{
             let username = process.env.EMAIL_ADDRESS;
             let password = process.env.MM_PASSWORD;
 
-            await this.elements.username().setValue(username);
-            await this.elements.password().setValue(password);
+            await this.elements.username().keys(username);
+            await this.elements.password().keys(password);
             await this.elements.loginButton().click();
         }
 
