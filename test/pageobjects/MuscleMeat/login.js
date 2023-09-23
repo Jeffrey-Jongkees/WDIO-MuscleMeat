@@ -1,4 +1,3 @@
-import { Key } from 'webdriverio'
 import { config } from 'dotenv';
 config();
 
