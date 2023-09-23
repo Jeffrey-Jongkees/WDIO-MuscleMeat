@@ -132,6 +132,7 @@ export const config = {
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,
     }]],
+    
 
 
     //
