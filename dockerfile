@@ -1,5 +1,5 @@
 # Use the base image you mentioned
-FROM juanpasobral/wdiotestrunner:v2021
+FROM webdriverio/selenium-standalone:latest
 
 # Creates the folder where our project will be stored
 RUN mkdir /musclemeat
