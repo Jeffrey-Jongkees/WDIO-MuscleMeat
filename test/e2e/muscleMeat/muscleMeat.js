@@ -6,7 +6,7 @@ describe('Login and Logout Tests', () => {
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
 
-    // Verify if the page is correctly loaded
+    // Verify if the webpage is correctly loaded
     const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
     await musclemeatLogo.isDisplayed();
 

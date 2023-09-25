@@ -3,16 +3,15 @@
   "type": "module",
   "devDependencies": {
     "@wdio/allure-reporter": "^8.16.7",
-    "@wdio/cli": "^8.16.7",
-    "@wdio/local-runner": "^8.16.7",
-    "@wdio/mocha-framework": "^8.16.7",
-    "@wdio/spec-reporter": "^8.16.7",
+    "@wdio/cli": "^8.16.12",
+    "@wdio/local-runner": "^8.16.12",
+    "@wdio/mocha-framework": "^8.16.12",
+    "@wdio/spec-reporter": "^8.16.12",
     "allure-commandline": "^2.24.0",
     "dotenv": "^16.3.1"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
-    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.e2e.js"
-    
+    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.js"
   }
 }
