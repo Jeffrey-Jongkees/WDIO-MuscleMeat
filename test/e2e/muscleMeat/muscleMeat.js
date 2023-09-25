@@ -7,7 +7,7 @@ describe('Login and Logout Tests', () => {
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
 
-    // Verify if the page is correctly loaded
+    // Verify if the webpage is correctly loaded
     const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
     await musclemeatLogo.isDisplayed();
 
@@ -48,7 +48,6 @@ describe('Login and Logout Tests', () => {
     await welcomeMessage.isDisplayed();
   
     // Click the logout button (Log uit)
-    await LoginPage.scrollIntoView()
     await LoginPage.clickLogOutbutton();
   
     // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
