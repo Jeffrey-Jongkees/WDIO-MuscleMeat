@@ -3,6 +3,9 @@ import HomePage from '../../pageobjects/MuscleMeat/homepage.js';
 
 describe('Login and Logout Tests', () => {
   it('Logging into musclemeat.nl', async () => {
+
+    await browser.setWindowSize(800,600)
+    
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
 
@@ -26,6 +29,7 @@ describe('Login and Logout Tests', () => {
 
     // To validate the successful login, check if the 'Log out' button is present
     const logOutButton = await $('//a[text()="Log uit"]');
+    await logOutButton.scrollIntoView()
     await expect(logOutButton).toHaveText('Log uit');
   });
 
@@ -46,6 +50,7 @@ describe('Login and Logout Tests', () => {
     await welcomeMessage.isDisplayed();
   
     // Click the logout button (Log uit)
+    await LoginPage.scrollIntoView()
     await LoginPage.clickLogOutbutton();
   
     // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
