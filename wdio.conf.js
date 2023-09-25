@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './test/e2e/**/*.js' 
+        './test/e2e/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,10 +53,9 @@ export const config = {
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
-         'goog:chromeOptions': {
-        //     args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
-           },
-        //    chromedriverVersion: '117.0.2'   
+        'goog:chromeOptions': {
+            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
+          }
     }],
 
     //
@@ -106,10 +105,7 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: ['chromedriver', {
-    //     // Use a relative path to the directory containing ChromeDriver
-    //     chromeDriverPath: './drivers',
-    //   }],
+    // services: [],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
