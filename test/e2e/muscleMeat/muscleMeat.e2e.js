@@ -4,8 +4,6 @@ import HomePage from '../../pageobjects/MuscleMeat/homepage.js';
 describe('Login and Logout Tests', () => {
   it('Logging into musclemeat.nl', async () => {
 
-    await browser.setWindowSize(800,600)
-    
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
 
