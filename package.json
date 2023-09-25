@@ -14,7 +14,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
-    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.e2e.js"
+    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.js"
     
   }
 }
