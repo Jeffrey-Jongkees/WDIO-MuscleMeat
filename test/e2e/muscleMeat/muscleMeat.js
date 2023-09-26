@@ -24,13 +24,17 @@ describe('Login and Logout Tests', () => {
     // Fill in login credentials
     await LoginPage.fillInCredentials();
 
-    // Verify if the welcome message is displayed
-    // const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
+    // Verify if the Muscle Meat Logo is displayed
     await musclemeatLogo.isDisplayed();
 
-    // To validate the successful login, check if the 'Log out' button is present
-    const logOutButton = await $('//h1[text()="Account"]');
-    await expect(logOutButton).toHaveText('ACCOUNT');
+    // Verify is welcome message is displayed //*[contains(text(),"Hallo")]');
+    await expect(welcomeMessage).toHaveText('Hallo')
+    const welcomeMessage = await $('//div[2]/div/main/div[2]/div/p[1]/text()[1]');
+    await expect(welcomeMessage).toHaveText('Hallo');
+
+    // To validate the successful login, check if the 'ACCOUNT' button is present
+    const accountLogo = await $('//h1[text()="Account"]');
+    await expect(accountLogo).toHaveText('ACCOUNT');
   });
 
   
