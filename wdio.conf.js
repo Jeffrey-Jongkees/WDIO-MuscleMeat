@@ -51,8 +51,9 @@ export const config = {
     //!!!!! ['--window-size=1920,1080', '--headless, --disable-gpu'] !!!!!
     capabilities: [{
         browserName: 'chrome',
+        browserVersion: '117.0.5938.92',
         'goog:chromeOptions': {
-            args: ['--headless, --disable-gpu'],
+            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
         }
     }],
 
