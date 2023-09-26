@@ -28,7 +28,6 @@ describe('Login and Logout Tests', () => {
     await musclemeatLogo.isDisplayed();
 
     // Verify is welcome message is displayed //*[contains(text(),"Hallo")]');
-    await expect(welcomeMessage).toHaveText('Hallo')
     const welcomeMessage = await $('//div[2]/div/main/div[2]/div/p[1]/text()[1]');
     await expect(welcomeMessage).toHaveText('Hallo');
 
