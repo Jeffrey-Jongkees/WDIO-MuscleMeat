@@ -11,6 +11,9 @@ WORKDIR /musclemeat
 COPY ./package.json .
 COPY ./wdio.conf.js .
 
+# Copy the .env file
+COPY .env .
+
 # Copy the test directory
 COPY test .
 

@@ -27,6 +27,9 @@ jobs:
       run: chmod +x ./node_modules/.bin/wdio
     
     - name: Run musclemeat login test!
+      env:
+        EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+        MM_PASSWORD: ${{ secrets.MM_PASSWORD }}
       run: npm run musclemeat
   
     # - name: Upload video
