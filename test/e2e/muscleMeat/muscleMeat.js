@@ -21,6 +21,8 @@ describe('Login and Logout Tests', () => {
     // Fill in login credentials
     await LoginPage.fillInCredentials();
 
+    await browser.pause(5000);
+
     // Verify if the welcome message is displayed
     const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
     await welcomeMessage.isDisplayed();
