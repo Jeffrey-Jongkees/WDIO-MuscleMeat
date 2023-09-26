@@ -26,13 +26,7 @@ describe('Login and Logout Tests', () => {
 
     // Verify if the welcome message is displayed
     const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
-    await welcomeMessage.waitUntil(
-    () => welcomeMessage.isDisplayed(), // Wait until the element is displayed
-        {
-          timeout: 10000, // Wait for up to 10 seconds
-          timeoutMsg: 'Welcome message was not displayed within the timeout.'
-        }
-);
+    await welcomeMessage.isDisplayed();
 
     // To validate the successful login, check if the 'Log out' button is present
     const logOutButton = await $('//a[text()="Log uit"]');
