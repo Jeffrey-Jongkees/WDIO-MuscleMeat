@@ -26,6 +26,7 @@ class LoginPage{
             await this.elements.username().setValue(username);
             await this.elements.password().setValue(password);
             await this.elements.loginButton().click();
+            await browser.pause(5000);
         }
 
         async clickLogOutbutton(){
