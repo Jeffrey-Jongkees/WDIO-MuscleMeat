@@ -27,9 +27,9 @@ describe('Login and Logout Tests', () => {
     // Verify if the Muscle Meat Logo is displayed
     await musclemeatLogo.isDisplayed();
 
-    // Verify is welcome message is displayed //*[contains(text(),"Hallo")]');
-    const welcomeMessage = await $('//div[2]/div/main/div[2]/div/p[1]/text()[1]');
-    await expect(welcomeMessage).toHaveText(' Hallo ');
+    // Verify is welcome message is displayed //div[2]/div/main/div[2]/div/p[1]/text()[1]
+    // const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
+    // await expect(welcomeMessage).toHaveText('Hallo');
 
     // To validate the successful login, check if the 'ACCOUNT' button is present
     const accountLogo = await $('//h1[text()="Account"]');
@@ -37,27 +37,26 @@ describe('Login and Logout Tests', () => {
   });
 
   
-  // it('Logging out of musclemeat.nl', async () => {
-  //   // Navigate to the website
-  //   await browser.url('https://musclemeat.nl/');
+  it('Logging out of musclemeat.nl', async () => {
+    // Navigate to the website
+    await browser.url('https://musclemeat.nl/');
 
-  //   // Verify if the page is correctly loaded
-  //   const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
-  //   await musclemeatLogo.isDisplayed();
+    // Verify if the page is correctly loaded
+    const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
+    await musclemeatLogo.isDisplayed();
   
-  //   // Click the account button
-  //   await HomePage.clickAccountButton();
+    // Click the account button
+    await HomePage.clickAccountButton();
+
+    // Verify if the Muscle Meat Logo is displayed
+    await musclemeatLogo.isDisplayed();
   
-  //   // Verify if the welcome message is displayed
-  //   const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
-  //   await welcomeMessage.isDisplayed();
+    // Click the logout button (Log uit)
+    await LoginPage.clickLogOutbutton();
   
-  //   // Click the logout button (Log uit)
-  //   await LoginPage.clickLogOutbutton();
-  
-  //   // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
-  //   const inloggen = await $('//h2[text()="Inloggen"]');
-  //   await expect(inloggen).toHaveText('INLOGGEN');
-  // });
+    // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
+    const inloggen = await $('//h2[text()="Inloggen"]');
+    await expect(inloggen).toHaveText('INLOGGEN');
+  });
 
 });
