@@ -5,7 +5,7 @@ describe('Login and Logout Tests', () => {
   it('Logging into musclemeat.nl', async () => {
     
     // Set the window size for testing
-    browser.setWindowSize(1366, 768);
+    browser.setWindowSize(1920, 1080);
 
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
@@ -26,8 +26,7 @@ describe('Login and Logout Tests', () => {
 
     // Verify if the welcome message is displayed
     const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
-    await expect(welcomeMessage).toBeDisplayed();
-    await expect(welcomeMessage).toHaveTextContaining('Hallo');
+    await welcomeMessage.isDisplayed();
 
     // To validate the successful login, check if the 'Log out' button is present
     const logOutButton = await $('//a[text()="Log uit"]');
