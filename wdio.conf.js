@@ -53,7 +53,7 @@ export const config = {
         browserName: 'chrome',
         browserVersion: '117.0.5938.92',
         'goog:chromeOptions': {
-            args: [],
+            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
         }
     }],
 
