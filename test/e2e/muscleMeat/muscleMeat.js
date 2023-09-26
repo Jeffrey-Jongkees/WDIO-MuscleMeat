@@ -25,7 +25,7 @@ describe('Login and Logout Tests', () => {
     await LoginPage.fillInCredentials();
 
     // Verify if the welcome message is displayed
-    const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
+    // const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
     await musclemeatLogo.isDisplayed();
 
     // To validate the successful login, check if the 'Log out' button is present
