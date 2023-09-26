@@ -30,7 +30,7 @@ jobs:
       env:
         EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
         MM_PASSWORD: ${{ secrets.MM_PASSWORD }}
-      run: npm run musclemeat
+      run: npm run gitHubActions
   
     # - name: Upload video
     #   uses: actions/upload-artifact@v3
