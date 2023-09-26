@@ -3,6 +3,9 @@ import HomePage from '../../pageobjects/MuscleMeat/homepage.js';
 
 describe('Login and Logout Tests', () => {
   it('Logging into musclemeat.nl', async () => {
+    
+    // Set the window size for testing
+    browser.setWindowSize(1366, 768);
 
     // Navigate to the website
     await browser.url('https://musclemeat.nl/');
@@ -20,12 +23,6 @@ describe('Login and Logout Tests', () => {
 
     // Fill in login credentials
     await LoginPage.fillInCredentials();
-
-    await // Use browser.waitUntil to wait for the element
-    browser.url('https://example.com'); // Navigate to your webpage
-    browser.waitUntil(() => {
-        return browser.isExisting("//*[contains(text(),'Hallo')]");
-    }, 5000, 'Element not found');
 
     // Verify if the welcome message is displayed
     const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
