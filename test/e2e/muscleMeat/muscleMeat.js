@@ -29,8 +29,8 @@ describe('Login and Logout Tests', () => {
     await musclemeatLogo.isDisplayed();
 
     // To validate the successful login, check if the 'Log out' button is present
-    const logOutButton = await $('//a[text()="Log uit"]');
-    await expect(logOutButton).toHaveText('Log uit');
+    const logOutButton = await $('//h1[text()="Account"]');
+    await expect(logOutButton).toHaveText('ACCOUNT');
   });
 
   
