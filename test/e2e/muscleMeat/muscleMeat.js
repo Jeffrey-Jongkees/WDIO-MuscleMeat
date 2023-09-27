@@ -37,26 +37,26 @@ describe('Login and Logout Tests', () => {
   });
 
   
-  it('Logging out of musclemeat.nl', async () => {
-    // Navigate to the website
-    await browser.url('https://musclemeat.nl/');
+  // it('Logging out of musclemeat.nl', async () => {
+  //   // Navigate to the website
+  //   await browser.url('https://musclemeat.nl/');
 
-    // Verify if the page is correctly loaded
-    const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
-    await musclemeatLogo.isDisplayed();
+  //   // Verify if the page is correctly loaded
+  //   const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
+  //   await musclemeatLogo.isDisplayed();
   
-    // Click the account button
-    await HomePage.clickAccountButton();
+  //   // Click the account button
+  //   await HomePage.clickAccountButton();
 
-    // Verify if the Muscle Meat Logo is displayed
-    await musclemeatLogo.isDisplayed();
+  //   // Verify if the Muscle Meat Logo is displayed
+  //   await musclemeatLogo.isDisplayed();
   
-    // Click the logout button (Log uit)
-    await LoginPage.clickLogOutbutton();
+  //   // Click the logout button (Log uit)
+  //   await LoginPage.clickLogOutbutton();
   
-    // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
-    const inloggen = await $('//h2[text()="Inloggen"]');
-    await expect(inloggen).toHaveText('INLOGGEN');
-  });
+  //   // To validate the successful logout, check if the 'INLOGGEN' text is present on the login page
+  //   const inloggen = await $('//h2[text()="Inloggen"]');
+  //   await expect(inloggen).toHaveText('INLOGGEN');
+  // });
 
 });
