@@ -1,4 +1,4 @@
 /node_modules
 .env
 /allure-results
-/_results_
+# /_results_
