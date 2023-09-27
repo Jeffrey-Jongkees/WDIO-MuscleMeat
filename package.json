@@ -2,11 +2,11 @@
   "name": "my-new-project",
   "type": "module",
   "devDependencies": {
-    "@wdio/allure-reporter": "^8.16.7",
-    "@wdio/cli": "^8.16.7",
-    "@wdio/local-runner": "^8.16.7",
-    "@wdio/mocha-framework": "^8.16.7",
-    "@wdio/spec-reporter": "^8.16.7",
+    "@wdio/allure-reporter": "^8.16.14",
+    "@wdio/cli": "^8.16.15",
+    "@wdio/local-runner": "^8.16.15",
+    "@wdio/mocha-framework": "^8.16.15",
+    "@wdio/spec-reporter": "^8.16.12",
     "allure-commandline": "^2.24.0",
     "chromedriver": "^117.0.2",
     "dotenv": "^16.3.1",
@@ -16,6 +16,9 @@
     "wdio": "wdio run ./wdio.conf.js",
     "gitHubActions": "EMAIL_ADDRESS=$EMAIL_ADDRESS MM_PASSWORD=$MM_PASSWORD wdio run ./wdio.conf.js --spec muscleMeat.js",
     "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.js"
-    
+  },
+  "dependencies": {
+    "wdio-video-reporter": "^4.0.4",
+    "webdriverio": "^8.16.15"
   }
 }
