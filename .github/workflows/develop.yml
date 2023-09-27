@@ -36,5 +36,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Login-Muscle-Meat
-        path: /home/runner/work/WDIO-MuscleMeat/WDIO-MuscleMeat/_results_/Login-and-Logout-Tests--Logging-out-of-musclemeat-nl--CHROME--09-27-2023--10-36-02-277.webm 
+        path:  
 
