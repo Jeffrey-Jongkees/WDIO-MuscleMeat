@@ -36,5 +36,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Login-Muscle-Meat
-        path: ./_results_/rawSeleniumVideoGrabs/
+        path: ./_results_/allure-raw/
 
