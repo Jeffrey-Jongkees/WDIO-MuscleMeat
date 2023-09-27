@@ -36,5 +36,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Login-Muscle-Meat
-        path: /home/runner/work/WDIO-MuscleMeat/WDIO-MuscleMeat/_results_/allure-raw.webm 
+        path: ./_results_/rawSeleniumVideoGrabs/
 
