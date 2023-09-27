@@ -32,9 +32,9 @@ jobs:
         MM_PASSWORD: ${{ secrets.MM_PASSWORD }}
       run: npm run gitHubActions
   
-    # - name: Upload video
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: Login-Muscle-Meat
-    #     path: /home/runner/work/MuscleMeat/MuscleMeat/cypress/videos/loginProcedureMuscleMeat.cy.mp4 
+    - name: Upload video
+      uses: actions/upload-artifact@v3
+      with:
+        name: Login-Muscle-Meat
+        path: /home/runner/work/WDIO-MuscleMeat/WDIO-MuscleMeat/_results_/allure-raw.webm 
 
