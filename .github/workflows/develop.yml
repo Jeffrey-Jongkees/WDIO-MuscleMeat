@@ -47,7 +47,7 @@ jobs:
       - name: Download video
         uses: actions/download-artifact@v3
         with:
-          name: Musclemeat login result
+          name: Login-Muscle-Meat
           
       - name: Display structure of downloaded files
         run: ls -R
