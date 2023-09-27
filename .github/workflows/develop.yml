@@ -33,6 +33,7 @@ jobs:
       run: npm run gitHubActions
   
     - name: Upload video
+      if: always()
       uses: actions/upload-artifact@v3
       with:
         name: Login-Muscle-Meat
