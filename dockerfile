@@ -15,7 +15,9 @@ COPY ./wdio.conf.js .
 COPY .env .
 
 # Copy the test directory
-COPY test .
+# Copies the local test folder to the test folder in the musclemeat workdir --> /musclemeat/test
+# specs: ['./test/e2e/**/*.js']
+COPY ./test ./test
 
 # Install Google Chrome (latest version)
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -27,5 +29,8 @@ COPY test .
 RUN npm install
 
 # Define the entry point and CMD
-ENTRYPOINT ["npx", "npm", "run", "wdio"]
+
+# npx wdio run "./wdio.conf.js"
+ENTRYPOINT ["npx", "wdio", "run"] 
+
 CMD ["./wdio.conf.js"]

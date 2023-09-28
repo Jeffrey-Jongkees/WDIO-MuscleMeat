@@ -1,3 +1,7 @@
+import video from 'wdio-video-reporter';
+
+// allure generate allure-results --clean -o allure-report
+
 export const config = {
     //
     // ====================
@@ -126,11 +130,14 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
+
+    // after test is run to receive the report with videos type in command --> allure serve _results_/allure-raw
+    // anither way to generate a test report allure generate --clean
     reporters: [
         [
-            'video',
+            video,
         {
-            saveAllVideos: false,
+            saveAllVideos: true,
             videosPath: './_results_/allure-raw'
         }],
         ['allure', {
