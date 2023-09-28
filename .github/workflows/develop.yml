@@ -41,6 +41,7 @@ jobs:
 
  Serve-Allure-Report:
    runs-on: ubuntu-latest
+   needs: [Login-Muscle-Meat]
 
    steps:
       - name: Serve Allure Report
