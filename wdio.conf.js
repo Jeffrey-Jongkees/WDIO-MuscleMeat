@@ -139,7 +139,7 @@ export const config = {
         [
             video,
         {
-            saveAllVideos: false,
+            saveAllVideos: true,
             videosPath: './_results_/allure-raw'
         }],
         ['allure', {
