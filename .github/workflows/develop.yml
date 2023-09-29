@@ -41,7 +41,7 @@ jobs:
         allure generate ./_results_/ -o ./_results_/allure-report/ --clean
 
     - name: Upload Allure Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: allure-report
         path: _results_/allure-report/
@@ -65,18 +65,4 @@ jobs:
           
       - name: Display structure of downloaded files
         run: ls -R
-
-      # - name: Set up a local web server and open Allure report
-      #   run: |
-      #     # Navigate to the directory containing the Allure report
-      #     cd _results_/allure-report
-
-      #     # Start a local web server to serve the report
-      #     python -m http.server 8000 &
-
-      #     # Wait for the server to start
-      #     sleep 5
-
-      #     # Open the Allure report in the default web browser
-      #     xdg-open http://localhost:8000/index.html
 
