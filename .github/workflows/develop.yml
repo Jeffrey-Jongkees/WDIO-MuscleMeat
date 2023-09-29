@@ -39,17 +39,9 @@ jobs:
         name: Login-Muscle-Meat
         path: ./_results_/
 
- Serve-Allure-Report:
-   runs-on: ubuntu-latest
-   needs: [Login-Muscle-Meat]
-
-   steps:
-      - name: Serve Allure Report
-        run: allure serve _results_/allure-raw   
-
- obtaining-musclemeat-results-video:
+ Obtaining-musclemeat-results-video:
     runs-on: ubuntu-latest
-    needs: [Login-Muscle-Meat, Serve-Allure-Report]
+    needs: Login-Muscle-Meat
 
     steps:
       - name: Download video
@@ -63,7 +55,7 @@ jobs:
       - name: Set up a local web server and open Allure report
         run: |
           # Navigate to the directory containing the Allure report
-          cd ./_results_/allure-report
+          cd _results_/allure-report
 
           # Start a local web server to serve the report
           python -m http.server 8000 &

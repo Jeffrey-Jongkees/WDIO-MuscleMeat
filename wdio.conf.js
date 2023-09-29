@@ -1,4 +1,6 @@
 import video from 'wdio-video-reporter';
+import { exec } from 'child_process';
+
 
 // allure generate allure-results --clean -o allure-report
 
@@ -137,7 +139,7 @@ export const config = {
         [
             video,
         {
-            saveAllVideos: true,
+            saveAllVideos: false,
             videosPath: './_results_/allure-raw'
         }],
         ['allure', {
@@ -247,11 +249,11 @@ export const config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-        if (!passed) {
-            await browser.takeScreenshot();
-        }
-    },
+    // afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    //     if (!passed) {
+    //         await browser.takeScreenshot();
+    //     }
+    // },
 
 
     /**
@@ -276,8 +278,17 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-    // after: function (result, capabilities, specs) {
-    // },
+    
+    after: function(test) {
+        exec('allure serve _results_/allure-raw', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error: ${error.message}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            console.error(`stderr: ${stderr}`);
+        });
+    },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {object} config wdio configuration object
