@@ -35,16 +35,16 @@ jobs:
         MM_PASSWORD: ${{ secrets.MM_PASSWORD }}
       run: npm run gitHubActions
 
-    # - name: Generate Allure Report
-    #   run: |
-    #     npm install -g allure-commandline  # install allure command line tool
-    #     allure generate ./_results_/ -o ./_results_/allure-report/ --clean
+    - name: Generate Allure Report
+      run: |
+        npm install -g allure-commandline  # install allure command line tool
+        allure generate ./_results_/ -o ./_results_/allure-report/ --clean
 
-    # - name: Upload Allure Report
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: allure-report
-    #     path: _results_/allure-report/
+    - name: Upload Allure Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: _results_/allure-report/
   
     - name: Upload video
       if: always()
