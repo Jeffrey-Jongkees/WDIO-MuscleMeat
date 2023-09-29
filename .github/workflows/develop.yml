@@ -39,30 +39,30 @@ jobs:
         name: Login-Muscle-Meat
         path: ./_results_/
 
- Obtaining-musclemeat-results-video:
-    runs-on: ubuntu-latest
-    needs: Login-Muscle-Meat
+#  Obtaining-musclemeat-results-video:
+#     runs-on: ubuntu-latest
+#     needs: Login-Muscle-Meat
 
-    steps:
-      - name: Download video
-        uses: actions/download-artifact@v3
-        with:
-          name: Login-Muscle-Meat
+#     steps:
+#       - name: Download video
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: Login-Muscle-Meat
           
-      - name: Display structure of downloaded files
-        run: ls -R
+#       - name: Display structure of downloaded files
+#         run: ls -R
 
-      - name: Set up a local web server and open Allure report
-        run: |
-          # Navigate to the directory containing the Allure report
-          cd _results_/allure-report
+#       - name: Set up a local web server and open Allure report
+#         run: |
+#           # Navigate to the directory containing the Allure report
+#           cd _results_/allure-report
 
-          # Start a local web server to serve the report
-          python -m http.server 8000 &
+#           # Start a local web server to serve the report
+#           python -m http.server 8000 &
 
-          # Wait for the server to start
-          sleep 5
+#           # Wait for the server to start
+#           sleep 5
 
-          # Open the Allure report in the default web browser
-          xdg-open http://localhost:8000/index.html
+#           # Open the Allure report in the default web browser
+#           xdg-open http://localhost:8000/index.html
 
