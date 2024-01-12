@@ -1,0 +1,21 @@
+{
+    "homePage": {
+        "dropdownmenus": {
+            "voeding": {
+                "voeding": "Voeding",
+                "kantEnKlareProducten": "https://musclemeat.nl/voeding/kant-en-klare-producten/",
+                "vleesEnKip": "https://musclemeat.nl/voeding/vlees-kip/"
+            },
+            "supplementen": {
+                "supplementen": "Supplementen"
+            },
+            "accessoires": {
+                "accessoires": "Accessoires"
+            },
+            "informatie": {
+                "informatie": "Informatie" 
+            }
+            
+        }
+    }
+}

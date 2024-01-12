@@ -27,10 +27,6 @@ describe('Login and Logout Tests', () => {
     // Verify if the Muscle Meat Logo is displayed
     await musclemeatLogo.isDisplayed();
 
-    // Verify is welcome message is displayed //div[2]/div/main/div[2]/div/p[1]/text()[1]
-    // const welcomeMessage = await $('//*[contains(text(),"Hallo")]');
-    // await expect(welcomeMessage).toHaveText('Hallo');
-
     // To validate the successful login, check if the 'ACCOUNT' button is present
     const accountLogo = await $('//h1[text()="Account"]');
     await expect(accountLogo).toHaveText('ACCOUNT');
@@ -38,9 +34,7 @@ describe('Login and Logout Tests', () => {
 
   
   it('Logging out of musclemeat.nl', async () => {
-    // Navigate to the website
-    await browser.url('https://musclemeat.nl/');
-
+    
     // Verify if the page is correctly loaded
     const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
     await musclemeatLogo.isDisplayed();
