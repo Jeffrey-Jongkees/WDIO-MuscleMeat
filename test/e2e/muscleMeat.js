@@ -1,15 +1,15 @@
-import LoginPage from '../../pageobjects/MuscleMeat/login.js';
-import HomePage from '../../pageobjects/MuscleMeat/homepage.js';
+import LoginPage from '../pageobjects/login.js';
+import HomePage from '../pageobjects/homepage.js';
 
 describe('Login and Logout Tests', () => {
+
+  beforeEach(() => {
+    browser.maximizeWindow();
+    browser.url('/')
+  });
+  
   it('Logging into musclemeat.nl', async () => {
     
-    // Set the window size for testing
-    browser.setWindowSize(1920, 700);
-
-    // Navigate to the website
-    await browser.url('https://musclemeat.nl/');
-
     // Verify if the webpage is correctly loaded
     const musclemeatLogo = await $('[data-src*="musclemeat-logo"]');
     await musclemeatLogo.isDisplayed();

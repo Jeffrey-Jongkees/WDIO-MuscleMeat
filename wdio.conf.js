@@ -1,5 +1,5 @@
-import video from 'wdio-video-reporter';
-import { exec } from 'child_process';
+//import video from 'wdio-video-reporter';
+//import { exec } from 'child_process';
 
 
 // allure generate allure-results --clean -o allure-report
@@ -27,7 +27,7 @@ export const config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    specs: ['./test/e2e/**/*.js'],
+    specs: ['./test/**/*.js'],
 
     // Patterns to exclude.
     exclude: [
@@ -57,9 +57,8 @@ export const config = {
     //!!!!! ['--window-size=1920,1080', '--headless, --disable-gpu'] !!!!!
     capabilities: [{
         browserName: 'chrome',
-        browserVersion: '117.0.5938.92',
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
+            // args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
         }
     }],
 
@@ -94,7 +93,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://musclemeat.nl/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -135,19 +134,19 @@ export const config = {
 
     // after test is run to receive the report with videos type in command --> allure serve _results_/allure-raw
     // anither way to generate a test report allure generate --clean
-    reporters: [
-        [
-            video,
-        {
-            saveAllVideos: false,
-            videosPath: './_results_/allure-raw'
-        }],
-        ['allure', {
-            outputDir: './_results_/allure-raw',
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-        }],
-    ],
+    // reporters: [
+    //     [
+    //         video,
+    //     {
+    //         saveAllVideos: false,
+    //         videosPath: './allure-report'
+    //     }],
+    //     ['allure', {
+    //         outputDir: './allure-report',
+    //         disableWebdriverStepsReporting: true,
+    //         disableWebdriverScreenshotsReporting: true,
+    //     }],
+    // ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -279,16 +278,16 @@ export const config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     
-    after: function(test) {
-        exec('allure serve _results_/allure-raw', (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error: ${error.message}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-            console.error(`stderr: ${stderr}`);
-        });
-    },
+    // after: function(test) {
+    //     exec('allure serve allure-reporting', (error, stdout, stderr) => {
+    //         if (error) {
+    //             console.error(`Error: ${error.message}`);
+    //             return;
+    //         }
+    //         console.log(`stdout: ${stdout}`);
+    //         console.error(`stderr: ${stderr}`);
+    //     });
+    // },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {object} config wdio configuration object
