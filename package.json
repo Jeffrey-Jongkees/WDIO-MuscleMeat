@@ -15,7 +15,8 @@
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js",
     "gitHubActions": "EMAIL_ADDRESS=$EMAIL_ADDRESS MM_PASSWORD=$MM_PASSWORD wdio run ./wdio.conf.js --spec muscleMeat.js",
-    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.js"
+    "musclemeat": "wdio run ./wdio.conf.js --spec muscleMeat.js",
+    "order": "wdio run ./wdio.conf.js --spec placingAnOrder.js"
   },
   "dependencies": {
     "fs-extra": "^11.2.0"

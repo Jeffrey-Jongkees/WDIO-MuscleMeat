@@ -4,7 +4,8 @@ class HomePage{
 
 
         accountButton: () => $('a[href="https://musclemeat.nl/my-account/ "]'),
-        vleesEnKip: () => $('//a[text()="Voeding"]/../ul//a[@href="https://musclemeat.nl/voeding/vlees-kip/"]')
+        vleesEnKip: () => $('//a[text()="Voeding"]/../ul//a[@href="https://musclemeat.nl/voeding/vlees-kip/"]'),
+        aardappelRijsBonen: () => $('//a[text()="Voeding"]/../ul//a[@href="https://musclemeat.nl/voeding/aardappel-rijst-pasta-bonen/"]')
         }
 
 
@@ -12,10 +13,12 @@ class HomePage{
             await this.elements.accountButton().click();
         }
 
-        async movetoDropDownMenu(dropdownmenu){
+        async moveToDropDownMenu(dropdownmenu){
 
             await $(`//a[text()="${dropdownmenu}"]`).moveTo();
-            await this.elements.vleesEnKip().waitForClickable();
+        }
+
+        async selectProduct(){
             await this.elements.vleesEnKip().click();
         }
 }

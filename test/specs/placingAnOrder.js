@@ -3,7 +3,7 @@ import fs from "fs-extra";
 
 let jsonData = ""
 
-describe('Login and Logout Tests', () => {
+describe('Go through the ordering process', () => {
 
     before(async () => {
     jsonData = await fs.readJson("./testdata.json");
@@ -14,10 +14,10 @@ describe('Login and Logout Tests', () => {
 
   
   
-  it('Logging into musclemeat.nl', async () => {
+  it('Placing an order', async () => {
     
-    // Move to the Voeding dropdown menu
-    await HomePage.movetoDropDownMenu(jsonData.homePage.dropdownmenus.voeding.voeding);
+    // Move to the VOEDING dropdown menu
+    await HomePage.moveToDropDownMenu(jsonData.homePage.dropdownmenus.voeding.voeding);
     await browser.pause(3000);  
   })
 });

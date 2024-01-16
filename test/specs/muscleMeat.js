@@ -1,7 +1,7 @@
 import LoginPage from '../pageobjects/login.js';
 import HomePage from '../pageobjects/homepage.js';
 
-describe('Login and Logout Tests', () => {
+describe('Login and logout procedures', () => {
 
   beforeEach(() => {
     browser.maximizeWindow();

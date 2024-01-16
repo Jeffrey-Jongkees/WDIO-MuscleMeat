@@ -4,7 +4,8 @@
             "voeding": {
                 "voeding": "Voeding",
                 "kantEnKlareProducten": "https://musclemeat.nl/voeding/kant-en-klare-producten/",
-                "vleesEnKip": "https://musclemeat.nl/voeding/vlees-kip/"
+                "vleesEnKip": "https://musclemeat.nl/voeding/vlees-kip/",
+                "aardappelRijstEnBonen": "https://musclemeat.nl/voeding/aardappel-rijst-pasta-bonen/"
             },
             "supplementen": {
                 "supplementen": "Supplementen"
