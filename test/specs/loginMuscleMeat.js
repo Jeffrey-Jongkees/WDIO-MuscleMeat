@@ -1,5 +1,5 @@
-import LoginPage from '../pageobjects/login.js';
-import HomePage from '../pageobjects/homepage.js';
+import LoginPage from '../pageobjects/login.page.js';
+import HomePage from '../pageobjects/home.page.js';
 
 describe('Login and logout procedures', () => {
 
