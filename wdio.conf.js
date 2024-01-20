@@ -139,10 +139,10 @@ export const config = {
     //         video,
     //     {
     //         saveAllVideos: false,
-    //         videosPath: './allure-report'
+    //         videosPath: './reporting'
     //     }],
     //     ['allure', {
-    //         outputDir: './allure-report',
+    //         outputDir: './reporting',
     //         disableWebdriverStepsReporting: true,
     //         disableWebdriverScreenshotsReporting: true,
     //     }],
@@ -279,7 +279,7 @@ export const config = {
      */
     
     // after: function(test) {
-    //     exec('allure serve allure-reporting', (error, stdout, stderr) => {
+    //     exec('allure serve reporting', (error, stdout, stderr) => {
     //         if (error) {
     //             console.error(`Error: ${error.message}`);
     //             return;
