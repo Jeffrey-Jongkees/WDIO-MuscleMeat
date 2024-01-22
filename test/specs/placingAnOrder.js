@@ -72,7 +72,20 @@ describe("Go through the ordering process", () => {
     await Afrekenen.clickAkkoordButton();
     
     // Fill in billing information
-    await Afrekenen.fillinBillingInformation();
+    await Afrekenen.fillinBillingInformation(
+      jsonData.factuurGegevens.voornaam,
+      jsonData.factuurGegevens.achternaam,
+      jsonData.factuurGegevens.straatEnHuisnummer,
+      jsonData.factuurGegevens.postcode,
+      jsonData.factuurGegevens.plaats,
+      jsonData.factuurGegevens.telefoon,
+      jsonData.factuurGegevens.emailAdres,
+      jsonData.factuurGegevens.bank
+    );
+
+    // Select the TERMS checkbox
+    await Afrekenen.selectAlgemeneVoorwaarden()
+
   });
 
 });

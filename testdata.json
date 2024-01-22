@@ -38,5 +38,15 @@
         },
     "aardappelRijstPastaEnBonenPage": {
         "witteRijst": "https://musclemeat.nl/product/witte-rijst/"
-        }
+        },
+    "factuurGegevens": {
+        "voornaam": "Jeffrey",
+        "achternaam": "Jongkees",
+        "straatEnHuisnummer": "Marten Meesweg 25-G",
+        "postcode": "3068 AV",
+        "plaats": "Rotterdam",
+        "telefoon": "+31609487216",
+        "emailAdres": "jeffreyjongkees@bsure-digital.nl",
+        "bank": "ING"
+    }
 }

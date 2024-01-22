@@ -12,6 +12,7 @@ class  Afrekenen{
         telefoon: () => $('[id="billing_phone"]'),
         emailAdres: () => $('[id="billing_email"]'),
         bank: () => $('[id="extvar8"]'),
+        algemeneVoorwaardenCheckbox: () => $('[id="terms"]'),
     
         }
 
@@ -41,6 +42,10 @@ class  Afrekenen{
             await this.elements.emailAdres().setValue(emailadres);
             await this.elements.bank().selectByAttribute('value', `${bank}`);
 
+        }
+
+        async selectAlgemeneVoorwaarden() {
+            await this.elements.algemeneVoorwaardenCheckbox.click();
         }
 }
 
