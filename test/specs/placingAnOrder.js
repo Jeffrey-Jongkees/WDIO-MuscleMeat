@@ -4,7 +4,7 @@ import BakolieSprays from "../pageobjects/bakolieSprays.page.js";
 import Winkelwagen from "../pageobjects/winkelwagen.page.js";
 import Afrekenen from "../pageobjects/afrekenen.page.js";
 import { moveToDropDownMenuAndSelectProduct, selectWinkelwagen } from "../functions.js";
-import { selectWinkelwagen } from "../functions.js";
+// import { selectWinkelwagen } from "../functions.js";
 import fs from "fs-extra";
 
 let jsonData = "";
@@ -48,9 +48,9 @@ describe("Go through the ordering process", () => {
       jsonData.dropdownmenus.voeding.aardappelRijstPastaEnBonen
     );
 
-    // Select Witte Rijst
+    // Select Zoete Aardappelblokjes
     await AardappelRijstPastaBonen.selectAardappelRijstPastaBonenProduct(
-      jsonData.aardappelRijstPastaEnBonenPage.witteRijst
+      jsonData.aardappelRijstPastaEnBonenPage.zoeteAardappelBlokjes
     )
 
     // Select BAKOLIE SPRAYS menu

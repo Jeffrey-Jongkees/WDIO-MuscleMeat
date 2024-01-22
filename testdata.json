@@ -37,7 +37,8 @@
         "beefMeatBallsRundvlees": "https://musclemeat.nl/product/beef-meat-balls/"
         },
     "aardappelRijstPastaEnBonenPage": {
-        "witteRijst": "https://musclemeat.nl/product/witte-rijst/"
+        "witteRijst": "https://musclemeat.nl/product/witte-rijst/",
+        "zoeteAardappelBlokjes": "https://musclemeat.nl/product/zoete-aardappel-blokjes/"
         },
     "factuurGegevens": {
         "voornaam": "Jeffrey",
@@ -47,6 +48,6 @@
         "plaats": "Rotterdam",
         "telefoon": "+31609487216",
         "emailAdres": "jeffreyjongkees@bsure-digital.nl",
-        "bank": "ING"
+        "bank": "0721"
     }
 }

@@ -40,12 +40,14 @@ class  Afrekenen{
             await this.elements.plaats().setValue(plaats);
             await this.elements.telefoon().setValue(telefoon);
             await this.elements.emailAdres().setValue(emailadres);
+            await this.elements.bank().waitForClickable();
             await this.elements.bank().selectByAttribute('value', `${bank}`);
 
         }
 
         async selectAlgemeneVoorwaarden() {
-            await this.elements.algemeneVoorwaardenCheckbox.click();
+            await this.elements.algemeneVoorwaardenCheckbox().click();
+            await browser.pause(5000);
         }
 }
 

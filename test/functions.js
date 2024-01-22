@@ -18,7 +18,9 @@ export async function clickInWinkelmand() {
 
 // Select shopping cart to review the selected itmes
 export async function selectWinkelwagen() {
-  const winkelwagen = await $('[title="Bekijk je winkelwagen"]');
+  await $('[title="Bekijk je winkelwagen"]').moveTo();
+  const winkelwagen = $('//a[contains(text(), "Bekijk je winkelwagen")]');
+  await winkelwagen.waitForClickable();
   await winkelwagen.click();
 }
  
