@@ -1,7 +1,10 @@
 import VleesEnKip from "../pageobjects/vleesEnKip.page.js";
 import AardappelRijstPastaBonen from "../pageobjects/aardappelRijstPastaBonen.page.js";
 import BakolieSprays from "../pageobjects/bakolieSprays.page.js";
-import { moveToDropDownMenuAndSelectProduct } from "../functions.js";
+import Winkelwagen from "../pageobjects/winkelwagen.page.js";
+import Afrekenen from "../pageobjects/afrekenen.page.js";
+import { moveToDropDownMenuAndSelectProduct, selectWinkelwagen } from "../functions.js";
+import { selectWinkelwagen } from "../functions.js";
 import fs from "fs-extra";
 
 let jsonData = "";
@@ -57,8 +60,19 @@ describe("Go through the ordering process", () => {
     );
 
     // Select Cooking Spray
-    await BakolieSprays.selectCookingSpray()
+    await BakolieSprays.selectCookingSpray();
 
+    // Select WINKELWAGEN
+    await selectWinkelwagen();
+
+    // Checkout and fill in credentials and select payment option
+    await Winkelwagen.clickDoorgaanNaarAfrekenenButton()
+
+    // Agreeing with the shippping terms. Selecting AKKOORD
+    await Afrekenen.clickAkkoordButton();
+    
+    // Fill in billing information
+    await Afrekenen.fillinBillingInformation();
   });
 
 });
