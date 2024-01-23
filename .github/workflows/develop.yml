@@ -21,7 +21,7 @@ jobs:
         node-version: 18
 
     - name: Create results directory
-      run: mkdir -p _results_/allure-report
+      run: mkdir -p reporting
 
     - name: Install dependencies
       run: npm install
@@ -38,20 +38,20 @@ jobs:
     - name: Generate Allure Report
       run: |
         npm install -g allure-commandline  # install allure command line tool
-        allure generate ./_results_/ -o ./_results_/allure-report/ --clean
+        allure generate ./reporting/ -o ./reporting/ --clean
 
     - name: Upload Allure Report
       uses: actions/upload-artifact@v3
       with:
         name: allure-report
-        path: _results_/allure-report/
+        path: reporting
   
     - name: Upload video
       if: always()
       uses: actions/upload-artifact@v3
       with:
         name: Login-Muscle-Meat
-        path: ./_results_/
+        path: ./reporting
 
  Obtaining-musclemeat-results-video:
     runs-on: ubuntu-latest
