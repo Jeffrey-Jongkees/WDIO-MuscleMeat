@@ -1,12 +1,6 @@
 // Select a dropdown menu 
 export async function moveToDropDownMenuAndSelectProduct(dropdownmenu, product){
 
-  // let product_ = await $(`//a[text()="${dropdownmenu}"]/../ul//a[@href="${product}"]`);
-
-  // await $(`//a[text()="${dropdownmenu}"]`).moveTo();
-  // await product_.waitForClickable();
-  // await product_.click();
-
   // First, move to the dropdown menu to ensure it is expanded.
   let dropdown = await $(`//a[text()="${dropdownmenu}"]`);
   await dropdown.moveTo();
