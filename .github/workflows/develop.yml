@@ -33,8 +33,10 @@ jobs:
       env:
         EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
         MM_PASSWORD: ${{ secrets.MM_PASSWORD }}
-      run: npm run gitHubActionsLogin
-      run: npm run gitHubActionsOrder
+      run: |
+        npm run gitHubActionsLogin
+        npm run gitHubActionsOrder
+    
 
     - name: Generate Allure Report
       run: |
