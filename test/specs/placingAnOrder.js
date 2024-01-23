@@ -1,6 +1,11 @@
-//import HomePage from "../pageobjects/home.page.js"; //npx wdio run ./wdio.conf.js --spec placingAnOrder.js
-import vleesEnKip from "../pageobjects/vleesEnKip.page.js";
-import { moveToDropDownMenuAndSelectProduct } from "../functions.js";
+import HomePage from "../pageobjects/home.page.js"
+import LoginPage from "../pageobjects/login.page.js";
+import VleesEnKip from "../pageobjects/vleesEnKip.page.js";
+import AardappelRijstPastaBonen from "../pageobjects/aardappelRijstPastaBonen.page.js";
+import BakolieSprays from "../pageobjects/bakolieSprays.page.js";
+import Winkelwagen from "../pageobjects/winkelwagen.page.js";
+import Afrekenen from "../pageobjects/afrekenen.page.js";
+import { moveToDropDownMenuAndSelectProduct, selectWinkelwagen } from "../functions.js";
 import fs from "fs-extra";
 
 let jsonData = "";
@@ -14,28 +19,84 @@ describe("Go through the ordering process", () => {
   });
 
   it("Placing an order", async () => {
+
+    // Click the account button
+    await HomePage.clickAccountButton();
+
+    // Fill in login credentials
+    await LoginPage.fillInCredentials();
+
+    // To validate the successful login, check if the 'ACCOUNT' button is present
+    const accountLogo = await $('//h1[text()="Account"]');
+    await expect(accountLogo).toHaveText('ACCOUNT');
     
-    // Select VLEES EN KIP
+    // Select VLEES EN KIP menu
     await moveToDropDownMenuAndSelectProduct(
-      jsonData.homePage.dropdownmenus.voeding.voeding,
-      jsonData.homePage.dropdownmenus.voeding.vleesEnKip
+      jsonData.dropdownmenus.voeding.voeding,
+      jsonData.dropdownmenus.voeding.vleesEnKip
     );
 
-    // Select a Vlees or Kip product
-    await vleesEnKip.selectVleesKipProduct(
+    // Select Roasted Kipfiletblokjes
+    await VleesEnKip.selectVleesKipProduct(
       jsonData.vleesEnKipPage.roastedKipfiletBlokjes.roastedKipfiletBlokjes,
       jsonData.vleesEnKipPage.roastedKipfiletBlokjes.typeOfKipfiletBlokjes.indianButter
       );
-     
-    // // Assertion to validate the correct page is successfully loaded
-    // const expectedText = 'ROASTED KIPFILETBLOKJES'
-    // const kipVlees = await $(`//h1[contains(text(), "Roasted Kipfiletblokjes")]`)
-    // await expect(kipVlees).toHaveTextContaining(expectedText, {ignoreCase: true});
 
-    // // Select the desired Roasted Chicken flavour
-    // await vleesEnKip.selectSmaken(
-    //   jsonData.vleesEnKipPage.roastedKipfiletBlokjes.typeOfKipfiletBlokjes.indianButter
-    // );
+    // Select VLEES EN KIP menu
+    await moveToDropDownMenuAndSelectProduct(
+      jsonData.dropdownmenus.voeding.voeding,
+      jsonData.dropdownmenus.voeding.vleesEnKip
+    );
+
+    // Select Beef meat-Balls 100% rundvlees
+    await VleesEnKip.selectVleesKipProduct(
+      jsonData.vleesEnKipPage.beefMeatBallsRundvlees
+      );
+
+    // Select AARDAPPEL RIJST PASTA EN BONEN menu
+    await moveToDropDownMenuAndSelectProduct(
+      jsonData.dropdownmenus.voeding.voeding,
+      jsonData.dropdownmenus.voeding.aardappelRijstPastaEnBonen
+    );
+
+    // Select Zoete Aardappelblokjes
+    await AardappelRijstPastaBonen.selectAardappelRijstPastaBonenProduct(
+      jsonData.aardappelRijstPastaEnBonenPage.zoeteAardappelBlokjes
+    )
+
+    // Select BAKOLIE SPRAYS menu
+    await moveToDropDownMenuAndSelectProduct(
+      jsonData.dropdownmenus.voeding.voeding,
+      jsonData.dropdownmenus.voeding.bakolieSprays
+    );
+
+    // Select Cooking Spray
+    await BakolieSprays.selectCookingSpray();
+
+    // Select WINKELWAGEN
+    await selectWinkelwagen();
+
+    // Checkout and fill in credentials and select payment option
+    await Winkelwagen.clickDoorgaanNaarAfrekenenButton()
+
+    // Agreeing with the shippping terms. Selecting AKKOORD
+    await Afrekenen.clickAkkoordButton();
+    
+    // Fill in billing information
+    await Afrekenen.fillinBillingInformation(
+      jsonData.factuurGegevens.voornaam,
+      jsonData.factuurGegevens.achternaam,
+      jsonData.factuurGegevens.straatEnHuisnummer,
+      jsonData.factuurGegevens.postcode,
+      jsonData.factuurGegevens.plaats,
+      jsonData.factuurGegevens.telefoon,
+      jsonData.factuurGegevens.emailAdres,
+      jsonData.factuurGegevens.bank
+    );
+
+    // Select the TERMS checkbox
+    await Afrekenen.selectAlgemeneVoorwaarden()
 
   });
+
 });

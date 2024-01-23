@@ -1,11 +1,11 @@
 {
-    "homePage": {
-        "dropdownmenus": {
+    "dropdownmenus": {
             "voeding": {
                 "voeding": "Voeding",
                 "kantEnKlareProducten": "https://musclemeat.nl/voeding/kant-en-klare-producten/",
                 "vleesEnKip": "https://musclemeat.nl/voeding/vlees-kip/",
-                "aardappelRijstEnBonen": "https://musclemeat.nl/voeding/aardappel-rijst-pasta-bonen/"
+                "aardappelRijstPastaEnBonen": "https://musclemeat.nl/voeding/aardappel-rijst-pasta-bonen/",
+                "bakolieSprays": "https://musclemeat.nl/voeding/bakolie-sprays/"
             },
             "supplementen": {
                 "supplementen": "Supplementen"
@@ -17,8 +17,7 @@
                 "informatie": "Informatie" 
             }
             
-        }
-    },
+        },
     "vleesEnKipPage": {
         "roastedKipfiletBlokjes": {
             "roastedKipfiletBlokjes": "https://musclemeat.nl/product/roasted-kipfiletblokjes/",
@@ -36,6 +35,19 @@
         },
         "kipfiletHaasChunks": "https://musclemeat.nl/product/kant-en-klare-kipfilethaas-chunks/",
         "beefMeatBallsRundvlees": "https://musclemeat.nl/product/beef-meat-balls/"
-
+        },
+    "aardappelRijstPastaEnBonenPage": {
+        "witteRijst": "https://musclemeat.nl/product/witte-rijst/",
+        "zoeteAardappelBlokjes": "https://musclemeat.nl/product/zoete-aardappel-blokjes/"
+        },
+    "factuurGegevens": {
+        "voornaam": "Jeffrey",
+        "achternaam": "Jongkees",
+        "straatEnHuisnummer": "Marten Meesweg 25-G",
+        "postcode": "3068 AV",
+        "plaats": "Rotterdam",
+        "telefoon": "+31609487216",
+        "emailAdres": "jeffreyjongkees@bsure-digital.nl",
+        "bank": "0721"
     }
 }

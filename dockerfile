@@ -16,7 +16,7 @@ COPY .env .
 
 # Copy the test directory
 # Copies the local test folder to the test folder in the musclemeat workdir --> /musclemeat/test
-# specs: ['./test/e2e/**/*.js']
+# specs: ['./test/specs/**/*.js']
 COPY ./test ./test
 
 # Install Node.js dependencies
