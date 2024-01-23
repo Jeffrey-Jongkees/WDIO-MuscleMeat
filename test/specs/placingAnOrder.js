@@ -1,10 +1,11 @@
+import HomePage from "../pageobjects/home.page.js"
+import LoginPage from "../pageobjects/login.page.js";
 import VleesEnKip from "../pageobjects/vleesEnKip.page.js";
 import AardappelRijstPastaBonen from "../pageobjects/aardappelRijstPastaBonen.page.js";
 import BakolieSprays from "../pageobjects/bakolieSprays.page.js";
 import Winkelwagen from "../pageobjects/winkelwagen.page.js";
 import Afrekenen from "../pageobjects/afrekenen.page.js";
 import { moveToDropDownMenuAndSelectProduct, selectWinkelwagen } from "../functions.js";
-// import { selectWinkelwagen } from "../functions.js";
 import fs from "fs-extra";
 
 let jsonData = "";
@@ -18,6 +19,16 @@ describe("Go through the ordering process", () => {
   });
 
   it("Placing an order", async () => {
+
+    // Click the account button
+    await HomePage.clickAccountButton();
+
+    // Fill in login credentials
+    await LoginPage.fillInCredentials();
+
+    // To validate the successful login, check if the 'ACCOUNT' button is present
+    const accountLogo = await $('//h1[text()="Account"]');
+    await expect(accountLogo).toHaveText('ACCOUNT');
     
     // Select VLEES EN KIP menu
     await moveToDropDownMenuAndSelectProduct(

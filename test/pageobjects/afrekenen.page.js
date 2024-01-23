@@ -33,6 +33,7 @@ class  Afrekenen{
         emailadres, 
         bank) {
 
+            //await browser.pause(10000)
             await this.elements.voornaam().setValue(voornaam);
             await this.elements.achternaam().setValue(achternaam);
             await this.elements.straatEnHuisnummer().setValue(straatHuisnummer);
@@ -40,6 +41,7 @@ class  Afrekenen{
             await this.elements.plaats().setValue(plaats);
             await this.elements.telefoon().setValue(telefoon);
             await this.elements.emailAdres().setValue(emailadres);
+            //await browser.pause(10000);
             await this.elements.bank().waitForClickable();
             await this.elements.bank().selectByAttribute('value', `${bank}`);
 
