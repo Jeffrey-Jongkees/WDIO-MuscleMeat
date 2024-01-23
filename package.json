@@ -19,6 +19,7 @@
     "order": "wdio run ./wdio.conf.js --spec placingAnOrder.js"
   },
   "dependencies": {
+    "@wdio/types": "^8.28.6",
     "fs-extra": "^11.2.0"
   }
 }
