@@ -10,11 +10,14 @@ import fs from "fs-extra";
 
 let jsonData = "";
 
+const { width, height } = { width: 1920, height: 1080 };
+
 describe("Go through the ordering process", () => {
   before(async () => {
     jsonData = await fs.readJson("./testdata.json");
 
-    await browser.maximizeWindow();
+    await browser.setWindowSize(width, height);
+    //await browser.maximizeWindow();
     await browser.url("/");
   });
 
