@@ -100,6 +100,10 @@ describe("Go through the ordering process", () => {
     // Select the TERMS checkbox
     await Afrekenen.selectAlgemeneVoorwaarden()
 
+    // Assertion on the Place order button
+    const bestellenEnBetalenButton = await $('[id="place_order"]')
+    await expect(bestellenEnBetalenButton).toHaveText('Bestellen en Betalen')
+
   });
 
 });
