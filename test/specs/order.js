@@ -16,8 +16,8 @@ describe("Go through the ordering process", () => {
   before(async () => {
     jsonData = await fs.readJson("./testdata.json");
 
-    await browser.setWindowSize(width, height);
-    //await browser.maximizeWindow();
+    //await browser.setWindowSize(width, height);
+    await browser.maximizeWindow();
     await browser.url("/");
   });
 

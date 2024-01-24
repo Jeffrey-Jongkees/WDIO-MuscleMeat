@@ -33,6 +33,7 @@ class  Afrekenen{
         emailadres, 
         bank) {
 
+            await this.elements.voornaam().waitForClickable();
             await this.elements.voornaam().setValue(voornaam);
             await this.elements.achternaam().setValue(achternaam);
             await this.elements.straatEnHuisnummer().setValue(straatHuisnummer);
@@ -46,6 +47,7 @@ class  Afrekenen{
         }
 
         async selectAlgemeneVoorwaarden() {
+            await this.elements.algemeneVoorwaardenCheckbox().waitForClickable();
             await this.elements.algemeneVoorwaardenCheckbox().click();
             await browser.pause(5000);
         }

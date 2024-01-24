@@ -17,7 +17,7 @@
     "gitHubActionsLogin": "EMAIL_ADDRESS=$EMAIL_ADDRESS MM_PASSWORD=$MM_PASSWORD wdio run ./wdio.conf.js --spec loginMuscleMeat.js",
     "gitHubActionsOrder": "EMAIL_ADDRESS=$EMAIL_ADDRESS MM_PASSWORD=$MM_PASSWORD wdio run ./wdio.conf.js --spec placingAnOrder.js",
     "musclemeat": "wdio run ./wdio.conf.js --spec loginMuscleMeat.js",
-    "order": "wdio run ./wdio.conf.js --spec placingAnOrder.js"
+    "order": "wdio run ./wdio.conf.js --spec order.js"
   },
   "dependencies": {
     "fs-extra": "^11.2.0"
