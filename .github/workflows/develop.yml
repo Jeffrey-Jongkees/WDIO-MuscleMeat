@@ -44,16 +44,16 @@ jobs:
         npm run gitHubActionsOrder
     
 
-    # - name: Generate Allure Report
-    #   run: |
-    #     npm install -g allure-commandline  # install allure command line tool
-    #     allure generate ./reporting/ -o ./reporting/ --clean
+    - name: Generate Allure Report
+      run: |
+        npm install -g allure-commandline  # install allure command line tool
+        allure generate ./reporting/ -o ./reporting/ --clean
 
-    # - name: Upload Allure Report
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: allure-report
-    #     path: reporting
+    - name: Upload Allure Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: reporting
   
     - name: Upload video
       if: always()
