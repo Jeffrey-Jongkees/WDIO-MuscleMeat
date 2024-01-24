@@ -49,7 +49,6 @@ class  Afrekenen{
         async selectAlgemeneVoorwaarden() {
             await this.elements.algemeneVoorwaardenCheckbox().waitForClickable();
             await this.elements.algemeneVoorwaardenCheckbox().click();
-            await browser.pause(5000);
         }
 }
 
