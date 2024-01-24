@@ -1,5 +1,5 @@
-//import video from 'wdio-video-reporter';
-//import { exec } from 'child_process';
+import video from 'wdio-video-reporter';
+import { exec } from 'child_process';
 
 
 // allure generate allure-results --clean -o allure-report
@@ -58,7 +58,7 @@ export const config = {
     capabilities: [{
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
+            // args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
         }
     }],
 
@@ -132,21 +132,22 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
 
-    // after test is run to receive the report with videos type in command --> allure serve _results_/allure-raw
-    // anither way to generate a test report allure generate --clean
-    // reporters: [
-    //     [
-    //         video,
-    //     {
-    //         saveAllVideos: false,
-    //         videosPath: './reporting'
-    //     }],
-    //     ['allure', {
-    //         outputDir: './reporting',
-    //         disableWebdriverStepsReporting: true,
-    //         disableWebdriverScreenshotsReporting: true,
-    //     }],
-    // ],
+    // after test is run to receive the report with videos type in command --> allure serve reporting
+    // another way to generate a test report allure generate --clean
+    reporters: [
+        [
+            video,
+        {
+            saveAllVideos: false,
+            videosPath: './reporting'
+        }],
+        // ['allure', {
+        //     outputDir: './reporting',
+        //     disableWebdriverStepsReporting: true,
+        //     disableWebdriverScreenshotsReporting: true,
+        //     disableMochaHooks: true
+        // }],
+    ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

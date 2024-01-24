@@ -1,24 +1,27 @@
 // Select a dropdown menu 
 export async function moveToDropDownMenuAndSelectProduct(dropdownmenu, product){
 
-  // let product_ = await $(`//a[text()="${dropdownmenu}"]/../ul//a[@href="${product}"]`);
-
-  // await $(`//a[text()="${dropdownmenu}"]`).moveTo();
-  // await product_.waitForClickable();
-  // await product_.click();
-
-  // First, move to the dropdown menu to ensure it is expanded.
-  let dropdown = await $(`//a[text()="${dropdownmenu}"]`);
-  await dropdown.moveTo();
-
-  // After ensuring the dropdown is expanded, locate the product.
   let product_ = await $(`//a[text()="${dropdownmenu}"]/../ul//a[@href="${product}"]`);
 
-  // Wait for the product to be clickable and then click on it.
+  await $(`//a[text()="${dropdownmenu}"]`).moveTo();
   await product_.waitForClickable();
   await product_.click();
-
 }
+
+// export async function moveToDropDownMenuAndSelectProduct(dropdownmenu, product){
+  
+//   // First, move to the dropdown menu to ensure it is expanded.
+//   let dropdown = await $(`//a[text()="${dropdownmenu}"]`);
+//   await dropdown.moveTo();
+
+//   // After ensuring the dropdown is expanded, locate the product.
+//   let product_ = await $(`//a[text()="${dropdownmenu}"]/../ul//a[@href="${product}"]`);
+
+//   // Wait for the product to be clickable and then click on it.
+//   await product_.waitForClickable();
+//   await product_.click();
+//}
+
 
 // Adding an item to the shopping cart
 export async function clickInWinkelmand() {
