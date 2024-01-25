@@ -52,6 +52,6 @@
     },
     "credentials": {
         "invalidEmail": "invald.emailaddress@bsure-digital.com",
-        "invaldPassword": "NoValidPassword"
+        "invalidPassword": "NoValidPassword"
     }
 }

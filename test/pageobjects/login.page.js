@@ -9,8 +9,7 @@ class LoginPage {
     username: () => $('[id="username"]'),
     password: () => $('[id="password"]'),
     loginButton: () => $('[name="login"]'),
-    logoutButton: () =>
-      $('div.woocommerce-MyAccount-content a[href*="customer-logout"]'),
+    logoutButton: () =>$('div.woocommerce-MyAccount-content a[href*="customer-logout"]'),
   };
 
   async clickAccountButton() {
