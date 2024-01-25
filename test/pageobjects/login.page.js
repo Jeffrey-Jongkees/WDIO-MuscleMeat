@@ -1,36 +1,36 @@
-import { config } from 'dotenv';
+import { config } from "dotenv";
 config();
 
-class LoginPage{
-    
-    elements ={
+class LoginPage {
 
+  elements = {
 
-        accountButton : () => $('a[href="https://musclemeat.nl/my-account/ "]'),
-        username : () => $('[id="username"]'),
-        password : () => $('[id="password"]'),
-        loginButton : () => $('[name="login"]'),
-        logoutButton : () => $('div.woocommerce-MyAccount-content a[href*="customer-logout"]')
-        }
+    accountButton: () => $('a[href="https://musclemeat.nl/my-account/ "]'),
+    username: () => $('[id="username"]'),
+    password: () => $('[id="password"]'),
+    loginButton: () => $('[name="login"]'),
+    logoutButton: () =>
+      $('div.woocommerce-MyAccount-content a[href*="customer-logout"]'),
+  };
 
+  async clickAccountButton() {
 
-       async clickAccountButton(){
-            await this.elements.accountButton().click();
-        }
+    await this.elements.accountButton().waitForDisplayed();
+    await this.elements.accountButton().click();
+  }
 
-        async fillInCredentials(){
+  async fillInCredentials(username, password) {
 
-            let username = process.env.EMAIL_ADDRESS;
-            let password = process.env.MM_PASSWORD;
+    await this.elements.username().waitForDisplayed();
+    await this.elements.username().setValue(username);
+    await this.elements.password().setValue(password);
+    await this.elements.loginButton().click();
+  }
 
-            await this.elements.username().setValue(username);
-            await this.elements.password().setValue(password);
-            await this.elements.loginButton().click();
-        }
+  async clickLogOutbutton() {
 
-        async clickLogOutbutton(){
-            await this.elements.logoutButton().click();
-        }
+    await this.elements.logoutButton().click();
+  }
 }
 
-export default new LoginPage(); 
+export default new LoginPage();

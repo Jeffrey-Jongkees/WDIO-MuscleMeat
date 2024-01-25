@@ -49,5 +49,9 @@
         "telefoon": "+31609487216",
         "emailAdres": "jeffreyjongkees@bsure-digital.nl",
         "bank": "0721"
+    },
+    "credentials": {
+        "invalidEmail": "invald.emailaddress@bsure-digital.com",
+        "invaldPassword": "NoValidPassword"
     }
 }
