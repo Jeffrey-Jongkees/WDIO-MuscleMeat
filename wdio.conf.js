@@ -150,18 +150,18 @@ export const config = {
     // after test is run to receive the report with videos type in command --> allure serve _results_/allure-raw
     // anither way to generate a test report allure generate --clean
     reporters: ['spec',
-        [
-            'video',
-        {
-            saveAllVideos: true,
-            outputDir: './reporting'
-        }],
-        ['allure', {
-            outputDir: './reporting/allure-results',
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true,
-            disableMochaHooks: true
-        }],
+        // [
+        //     video,
+        // {
+        //     saveAllVideos: true,
+        //     outputDir: './reporting'
+        // }],
+        // ['allure', {
+        //     outputDir: './reporting/allure-results',
+        //     disableWebdriverStepsReporting: true,
+        //     disableWebdriverScreenshotsReporting: true,
+        //     disableMochaHooks: true
+        // }],
     ],
     //
     // Options to be passed to Mocha.
