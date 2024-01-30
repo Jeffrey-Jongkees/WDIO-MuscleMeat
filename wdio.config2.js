@@ -2,7 +2,8 @@
 // Auto generate report npm i allure-commandline
 // npx allure open -> opens the generated allure report
 
-import allureReporter from "@wdio/allure-reporter";
+// import allureReporter from "@wdio/allure-reporter";
+import fs from 'fs-extra';
 
 export const config = {
   //
@@ -169,8 +170,11 @@ export const config = {
    * @param {object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
-  // },
+  onPrepare: function (config, capabilities) {
+    if(fs.existsSync("./reporting/allure-results")) {
+        fs.rmSync("./reporting/allure-results", {recursive: true} );
+    }
+  },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -305,7 +309,7 @@ export const config = {
     const reportError = new Error("Could not generate Allure report");
     const generation = allure(["generate", "allure-results", "--clean"]);
     return new Promise((resolve, reject) => {
-      const generationTimeout = setTimeout(() => reject(reportError), 5000);
+      const generationTimeout = setTimeout(() => reject(reportError), 60000);
 
       generation.on("exit", function (exitCode) {
         clearTimeout(generationTimeout);
