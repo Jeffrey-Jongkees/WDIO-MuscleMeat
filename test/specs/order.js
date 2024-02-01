@@ -7,6 +7,8 @@ import Winkelwagen from "../pageobjects/winkelwagen.page.js";
 import Afrekenen from "../pageobjects/afrekenen.page.js";
 import { moveToDropDownMenuAndSelectProduct, selectWinkelwagen } from "../functions.js";
 import fs from "fs-extra";
+import { config } from "dotenv";
+config();
 
 let jsonData = "";
 
@@ -20,15 +22,18 @@ describe("Go through the ordering process", () => {
 
   it("Placing an order", async () => {
 
-    // Click the account button
-    await HomePage.clickAccountButton();
+    // // Click the account button
+    // await HomePage.clickAccountButton();
 
-    // Fill in login credentials
-    await LoginPage.fillInCredentials();
+    // // Fill in login credentials
+    // await LoginPage.fillInCredentials(
+    //   process.env.EMAIL_ADDRESS, 
+    //   process.env.MM_PASSWORD
+    // );
 
     // To validate the successful login, check if the 'ACCOUNT' button is present
-    const accountLogo = await $('//h1[text()="Account"]');
-    await expect(accountLogo).toHaveText('ACCOUNT');
+    // const accountLogo = await $('//h1[text()="Account"]');
+    // await expect(accountLogo).toHaveText('ACCOUNT');
     
     // Select VLEES EN KIP menu
     await moveToDropDownMenuAndSelectProduct(

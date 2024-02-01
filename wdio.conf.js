@@ -1,23 +1,22 @@
-import video from 'wdio-video-reporter';
-// import { exec } from 'child_process';
+import { exec } from 'child_process';
 import fs from 'fs-extra'
 
-// Function to clean the specified directory
-function cleanDirectory(directoryPath) {
-    try {
-        fs.emptyDirSync(directoryPath);
-        console.log(`Cleaned directory: ${directoryPath}`);
-    } catch (err) {
-        console.error(`Error cleaning directory: ${directoryPath}`);
-        console.error(err);
-    }
-}
+// // Function to clean the specified directory
+// function cleanDirectory(directoryPath) {
+//     try {
+//         fs.emptyDirSync(directoryPath);
+//         console.log(`Cleaned directory: ${directoryPath}`);
+//     } catch (err) {
+//         console.error(`Error cleaning directory: ${directoryPath}`);
+//         console.error(err);
+//     }
+// }
 
-// Specify the directories you want to clean before running tests
-const directoriesToClean = ['./reporting'];
+// // Specify the directories you want to clean before running tests
+// const directoriesToClean = ['./reporting'];
 
-// Clean the directories before running tests
-directoriesToClean.forEach(cleanDirectory);
+// // Clean the directories before running tests
+// directoriesToClean.forEach(cleanDirectory);
 
 export const config = {
     //
@@ -150,18 +149,12 @@ export const config = {
     // after test is run to receive the report with videos type in command --> allure serve _results_/allure-raw
     // anither way to generate a test report allure generate --clean
     reporters: ['spec',
-        // [
-        //     video,
-        // {
-        //     saveAllVideos: true,
-        //     outputDir: './reporting'
-        // }],
-        // ['allure', {
-        //     outputDir: './reporting/allure-results',
-        //     disableWebdriverStepsReporting: true,
-        //     disableWebdriverScreenshotsReporting: true,
-        //     disableMochaHooks: true
-        // }],
+        ['allure', {
+            outputDir: './allure-results',
+            disableWebdriverStepsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
+            disableMochaHooks: true
+        }],
     ],
     //
     // Options to be passed to Mocha.
@@ -183,8 +176,11 @@ export const config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        if(fs.existsSync("./allure-results")) {
+            fs.rmSync("./allure-results", {recursive: true} );
+        }
+      },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -264,11 +260,11 @@ export const config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-    //     if (!passed) {
-    //         await browser.takeScreenshot();
-    //     }
-    // },
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            await browser.takeScreenshot();
+        }
+    },
 
 
     /**
@@ -294,16 +290,16 @@ export const config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     
-    // after: function(test) {
-    //     exec('allure serve reporting', (error, stdout, stderr) => {
-    //         if (error) {
-    //             console.error(`Error: ${error.message}`);
-    //             return;
-    //         }
-    //         console.log(`stdout: ${stdout}`);
-    //         console.error(`stderr: ${stderr}`);
-    //     });
-    // },
+    after: function(test) {
+        exec('allure serve allure-results', (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error: ${error.message}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            console.error(`stderr: ${stderr}`);
+        });
+    },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {object} config wdio configuration object
