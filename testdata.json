@@ -5,7 +5,8 @@
                 "kantEnKlareProducten": "https://musclemeat.nl/voeding/kant-en-klare-producten/",
                 "vleesEnKip": "https://musclemeat.nl/voeding/vlees-kip/",
                 "aardappelRijstPastaEnBonen": "https://musclemeat.nl/voeding/aardappel-rijst-pasta-bonen/",
-                "bakolieSprays": "https://musclemeat.nl/voeding/bakolie-sprays/"
+                "bakolieSprays": "https://musclemeat.nl/voeding/bakolie-sprays/",
+                "groentenEnFruit": "https://musclemeat.nl/voeding/groenten-fruit/"
             },
             "supplementen": {
                 "supplementen": "Supplementen"
@@ -49,6 +50,11 @@
         "telefoon": "+31609487216",
         "emailAdres": "jeffreyjongkees@bsure-digital.nl",
         "bank": "0721"
+    },
+    "groentenEnFruitPage": {
+        "broccoliPureeID": "33034",
+        "sperziebonenGebrokenID": "31724",
+        "rodeVruchtenMixID": "31684"
     },
     "credentials": {
         "invalidEmail": "invald.emailaddress@bsure-digital.com",

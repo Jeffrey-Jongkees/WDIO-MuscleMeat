@@ -21,6 +21,8 @@ class AardappelRijstPastaBonen{
 
             await clickInWinkelmand();      
         }
+
+        
         
     }
 
