@@ -1,6 +1,3 @@
-// import { clickInWinkelmand } from "../functions.js"
-// import fs from "fs-extra";
-
 
 class Groenten{       
      
