@@ -30,6 +30,12 @@ export const config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    suites: {
+        smoke: [
+            'test/specs/loginMuscleMeat.js', // npx wdio --suite smoke
+            'test/specs/order.js'
+        ]
+    },
     //
     // ============
     // Capabilities
@@ -55,7 +61,7 @@ export const config = {
     capabilities: [{
         browserName: 'chrome',
         'goog:chromeOptions': {
-            //args: ['--window-size=1920,1080','--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
+            args: ['--window-size=1920,1080','--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
         }
     }],
 
