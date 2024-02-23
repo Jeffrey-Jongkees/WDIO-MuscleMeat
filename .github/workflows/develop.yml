@@ -7,7 +7,7 @@ on:
 
 jobs:
  
- Login-Muscle-Meat:
+ Muscle-Meat-Tests:
    runs-on: ubuntu-latest
    environment: testing
 
@@ -19,10 +19,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20
-
-    - name: Create results directory
-      run: mkdir -p reporting
-
+  
     - name: Install dependencies
       run: npm install
 
@@ -43,35 +40,50 @@ jobs:
       run:
         npm run gitHubActionsOrder
     
-
-    - name: Generate Allure Report
-      run: |
-        npm install -g allure-commandline  # install allure command line tool
-        allure generate ./reporting/ -o ./reporting/ --clean
-
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-report
-        path: ./reporting
-  
-    - name: Upload video
+    - name: Upload Allure Results
       if: always()
       uses: actions/upload-artifact@v3
       with:
-        name: Login-Muscle-Meat
-        path: ./reporting
+        name: allure-results
+        path: ./allure-results
+        
+ generate_allure_report:
+    runs-on: ubuntu-latest
+    needs: Muscle-Meat-Tests
+    if: always()
 
-#  Obtaining-musclemeat-results-video:
-#     runs-on: ubuntu-latest
-#     needs: Login-Muscle-Meat
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-#     steps:
-#       - name: Download video
-#         uses: actions/download-artifact@v3
-#         with:
-#           name: Login-Muscle-Meat
-          
-#       - name: Display structure of downloaded files
-#         run: ls -R
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Download Allure Results
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results
+
+      - name: Generate Allure Report
+        run: |
+          npm install -g allure-commandline
+          allure generate allure-results -o allure-report --clean
+
+      # - name: Upload Allure Report
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: allure-report
+      #     path: ./allure-report test
+    
+      - name: Deploy Allure Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }} 
+            publish_dir: ./allure-report
+            publish_branch: gh-pages
+            keep_files: false
+            # open Allure-Report via this url: https://Jeffrey-Jongkees.github.io/WDIO-MuscleMeat/
 
