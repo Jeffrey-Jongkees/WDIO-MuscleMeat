@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "[data-product_sku=\"Cooking Spray MUSCLE MEAT\"]"
+}

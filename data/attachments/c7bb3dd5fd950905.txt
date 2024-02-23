@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[title=\"Aantal\"]\"}\n  (Session info: chrome-headless-shell=121.0.6167.184)",
+  "stacktrace": "#0 0x563808590303 <unknown>\n#1 0x5638082752b7 <unknown>\n#2 0x5638082c0cc0 <unknown>\n#3 0x5638082c0db1 <unknown>\n#4 0x563808304b44 <unknown>\n#5 0x5638082e33ad <unknown>\n#6 0x56380830207c <unknown>\n#7 0x5638082e3123 <unknown>\n#8 0x5638082b3095 <unknown>\n#9 0x5638082b409e <unknown>\n#10 0x5638085546ab <unknown>\n#11 0x5638085584ba <unknown>\n#12 0x563808540f85 <unknown>\n#13 0x56380855912f <unknown>\n#14 0x563808524e6f <unknown>\n#15 0x56380857d5f8 <unknown>\n#16 0x56380857d7c2 <unknown>\n#17 0x56380858f4a4 <unknown>\n#18 0x7fea71294ac3 <unknown>\n"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//h4[@class=\"woocommerce-loop-product_title\"]/../../../a[@href=\"https://musclemeat.nl/product/roasted-kipfiletblokjes/\"]"
+}

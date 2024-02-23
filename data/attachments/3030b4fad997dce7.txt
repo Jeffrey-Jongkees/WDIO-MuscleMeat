@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "[class=\"single_add_to_cart_button button alt\"]"
+}
